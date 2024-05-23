@@ -6,7 +6,12 @@
 
     <groupId>org.trungvq</groupId>
     <artifactId>trungvq-microservices</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>customer</module>
+    </modules>
 
     <name>trungvq-microservices</name>
     <!-- FIXME change it to the project's website -->
@@ -36,6 +41,10 @@
         <dependency><!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
     </dependencies>
 
