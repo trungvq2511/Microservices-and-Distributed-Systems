@@ -1,13 +1,12 @@
 server:
-  port: 8080
-
+  port: 8082
 spring:
   application:
-    name: customer
+    name: notification
   datasource:
     username: trungvq8
     password: password
-    url: jdbc:postgresql://localhost:5432/customer
+    url: jdbc:postgresql://localhost:5432/notification
   jpa:
     hibernate:
       ddl-auto: create

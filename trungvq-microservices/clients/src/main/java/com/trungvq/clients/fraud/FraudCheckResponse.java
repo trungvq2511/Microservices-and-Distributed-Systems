@@ -1,4 +1,4 @@
-package com.trungvq.clients.fraud.response;
+package com.trungvq.clients.fraud;
 
 public record FraudCheckResponse(
         boolean isFraudster
