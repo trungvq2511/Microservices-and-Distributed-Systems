@@ -131,3 +131,4 @@ dist
 .pnp.*
 *.class
 /trungvq-microservices/fraud/target
+/trungvq-microservices/.idea
