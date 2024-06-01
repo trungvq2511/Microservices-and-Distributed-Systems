@@ -131,3 +131,5 @@ dist
 *.class
 /trungvq-microservices/fraud/target
 /trungvq-microservices/eureka-server/target
+/trungvq-microservices/.idea
+.idea/
