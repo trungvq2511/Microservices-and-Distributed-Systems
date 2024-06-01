@@ -1,6 +1,6 @@
 package com.trungvq.fraud.controller;
 
-import com.trungvq.fraud.response.FraudCheckResponse;
+import com.trungvq.clients.fraud.response.FraudCheckResponse;
 import com.trungvq.fraud.service.FraudCheckService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
