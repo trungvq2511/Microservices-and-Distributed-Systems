@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface NotificationClient {
 
     @PostMapping
-    public void sendNotification(@RequestBody NotificationSendRequest notificationSendRequest) ;
+    public void sendNotification(@RequestBody NotificationSendRequest notificationSendRequest);
 }

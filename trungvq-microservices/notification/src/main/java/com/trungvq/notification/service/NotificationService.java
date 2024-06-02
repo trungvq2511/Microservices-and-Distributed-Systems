@@ -1,8 +1,8 @@
 package com.trungvq.notification.service;
 
+import com.trungvq.clients.notification.NotificationSendRequest;
 import com.trungvq.notification.model.Notification;
 import com.trungvq.notification.repository.NotificationRepository;
-import com.trungvq.clients.notification.NotificationSendRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
