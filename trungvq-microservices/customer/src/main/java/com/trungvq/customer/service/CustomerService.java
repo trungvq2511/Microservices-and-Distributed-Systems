@@ -1,21 +1,19 @@
 package com.trungvq.customer.service;
 
-import com.trungvq.clients.fraud.FraudClient;
 import com.trungvq.clients.fraud.FraudCheckResponse;
-import com.trungvq.clients.notification.NotificationClient;
+import com.trungvq.clients.fraud.FraudClient;
 import com.trungvq.clients.notification.NotificationSendRequest;
 import com.trungvq.customer.model.Customer;
 import com.trungvq.customer.repository.CustomerRepository;
 import com.trungvq.customer.request.CustomerRegistrationRequest;
+import com.trungvq.messagequeue.producer.RabbitMQMessageProducer;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public record CustomerService(
         CustomerRepository customerRepository,
-        RestTemplate restTemplate,
         FraudClient fraudClient,
-        NotificationClient notificationClient
+        RabbitMQMessageProducer rabbitMQMessageProducer
 ) {
 
     public void registerCustomer(CustomerRegistrationRequest request) {
@@ -41,6 +39,9 @@ public record CustomerService(
                 customer.getEmail(),
                 String.format("Hi %s, Welcome to Microservices...", customer.getFirstName()),
                 "TrungVQ8");
-        notificationClient.sendNotification(notificationSendRequest);
+        rabbitMQMessageProducer.publish(
+                notificationSendRequest,
+                "internal.exchange",
+                "internal.notification.routing-key");
     }
 }
