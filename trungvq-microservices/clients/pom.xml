@@ -9,6 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
+    <artifactId>clients</artifactId>
+
     <build>
         <plugins>
             <plugin>
@@ -21,7 +23,6 @@
             </plugin>
         </plugins>
     </build>
-    <artifactId>clients</artifactId>
 
     <!--    <build>-->
     <!--        <plugins>-->
