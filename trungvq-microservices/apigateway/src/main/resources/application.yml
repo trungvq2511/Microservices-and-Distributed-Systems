@@ -13,6 +13,12 @@ spring:
           uri: lb://CUSTOMER
           predicates:
             - Path=/api/v1/customer/**
+    loadbalancer:
+      retry:
+        enabled: true
+      configurations:
+        MY-SERVICE:
+          hint: round-robin
 
 eureka:
   client:
