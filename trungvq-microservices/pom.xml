@@ -30,6 +30,7 @@
         <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
         <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <image>cowboysaker2511/${project.artifactId}:${project.version}</image>
     </properties>
 
     <dependencyManagement>
@@ -77,6 +78,31 @@
                         <execution>
                             <goals>
                                 <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>3.4.3</version>
+                    <configuration>
+                        <from>
+                            <image>openjdk:17</image>
+                        </from>
+                        <to>
+                            <tags>
+                                <tag>latest</tag>
+                            </tags>
+                        </to>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+<!--                                <goal>dockerBuild</goal>-->
+<!--                                <goal>buildTar</goal>-->
                             </goals>
                         </execution>
                     </executions>
