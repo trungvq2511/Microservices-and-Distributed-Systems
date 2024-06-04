@@ -43,7 +43,7 @@ services:
     networks:
       - spring
   eureka-server:
-    image: localhost:5000/eureka-server:latest
+    image: cowboysaker2511/eureka-server:latest
     container_name: eureka-server
     ports:
       - "8761:8761"

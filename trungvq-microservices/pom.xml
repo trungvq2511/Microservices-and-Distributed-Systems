@@ -100,9 +100,9 @@
                         <execution>
                             <phase>package</phase>
                             <goals>
-                                <goal>build</goal>
+<!--                                <goal>build</goal>-->
 <!--                                <goal>dockerBuild</goal>-->
-<!--                                <goal>buildTar</goal>-->
+                                <goal>buildTar</goal>
                             </goals>
                         </execution>
                     </executions>
