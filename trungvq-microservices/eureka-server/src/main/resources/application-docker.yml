@@ -12,3 +12,4 @@ eureka:
     fetch-registry: false
     # register it-self as a client
     register-with-eureka: false
+    enable: false
