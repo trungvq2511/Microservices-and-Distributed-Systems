@@ -20,6 +20,14 @@ spring:
     base-url: http://localhost:9411
   rabbitmq:
     addresses: localhost:5672
+  kafka:
+    bootstrap-servers: "model-clam-10054-us1-kafka.upstash.io:9092"
+    security:
+      protocol: "SASL_SSL"
+    sasl:
+      mechanism: "SCRAM-SHA-256"
+      jaas:
+        config: "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"bW9kZWwtY2xhbS0xMDA1NCTZ9PF8Ig6Wnx7PEp8tV2_O21lGXkICyjkencmtto8\" password=\"MWViYTM3MTUtMDA2Mi00MTZmLWEzOTYtNzM1N2RlY2MwZDVj\";"
 
 eureka:
   client:
