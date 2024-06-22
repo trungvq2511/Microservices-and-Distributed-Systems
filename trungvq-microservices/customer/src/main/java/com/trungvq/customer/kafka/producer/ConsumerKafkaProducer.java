@@ -10,12 +10,8 @@ public record ConsumerKafkaProducer(
         KafkaTemplate<String, NotificationSendRequest> kafkaTemplate
 ) {
 
-    public void produceNotificationMessage(String notificationTopic, NotificationSendRequest notificationSendRequest) {
-        // create a Producer Record
-        ProducerRecord<String, NotificationSendRequest> notificationRecord =
-                new ProducerRecord<>(notificationTopic, notificationSendRequest);
-
+    public void produceNotificationMessage(String notificationTopicName, NotificationSendRequest notificationSendRequest) {
         // send data
-        kafkaTemplate.send(notificationTopic, notificationSendRequest);
+        kafkaTemplate.send(notificationTopicName, notificationSendRequest);
     }
 }
