@@ -1,7 +1,6 @@
 package com.trungvq.customer.kafka.producer;
 
 import com.trungvq.clients.notification.NotificationSendRequest;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 

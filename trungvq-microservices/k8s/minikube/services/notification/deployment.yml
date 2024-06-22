@@ -16,7 +16,7 @@ spec:
         - name: notification
           image: cowboysaker2511/notification:latest
           imagePullPolicy: IfNotPresent
-#          imagePullPolicy: Never
+          #          imagePullPolicy: Never
           ports:
             - containerPort: 8083
           env:

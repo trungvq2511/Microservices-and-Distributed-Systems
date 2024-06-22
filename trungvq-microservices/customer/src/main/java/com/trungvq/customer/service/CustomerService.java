@@ -8,7 +8,6 @@ import com.trungvq.customer.model.Customer;
 import com.trungvq.customer.repository.CustomerRepository;
 import com.trungvq.customer.request.CustomerRegistrationRequest;
 import com.trungvq.messagequeue.producer.RabbitMQMessageProducer;
-import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +16,7 @@ public record CustomerService(
         FraudClient fraudClient,
         RabbitMQMessageProducer rabbitMQMessageProducer,
         ConsumerKafkaProducer consumerKafkaProducer
-        ) {
+) {
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())

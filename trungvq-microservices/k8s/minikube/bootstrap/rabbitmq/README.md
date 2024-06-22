@@ -5,29 +5,31 @@ via `rabbitmq-peer-discovery-k8s` plugin.
 
 ## Production (Non-)Suitability
 
-Some values in this example **may or may not be optimal for your deployment**. We encourage users
-to get familiar with the [RabbitMQ Peer Discovery guide](https://www.rabbitmq.com/cluster-formation.html), [RabbitMQ Production Checklist](https://www.rabbitmq.com/production-checklist.html)
+Some values in this example **may or may not be optimal for your deployment**. We encourage users to get familiar with
+the [RabbitMQ Peer Discovery guide](https://www.rabbitmq.com/cluster-formation.html)
+, [RabbitMQ Production Checklist](https://www.rabbitmq.com/production-checklist.html)
 and the rest of [RabbitMQ documentation](https://www.rabbitmq.com/documentation.html) before going into production.
 
-Having [metrics](https://www.rabbitmq.com/monitoring.html), both of RabbitMQ and applications that use it,
-is critically important when making informed decisions about production systems.
-
+Having [metrics](https://www.rabbitmq.com/monitoring.html), both of RabbitMQ and applications that use it, is critically
+important when making informed decisions about production systems.
 
 ## Pre-requisites
 
 The example uses, targets or assumes:
 
- * [Minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/) with the [VirtualBox](https://www.virtualbox.org/) driver (other drivers can be used, too)
- * Kubernetes 1.6
- * RabbitMQ [Docker image](https://hub.docker.com/_/rabbitmq/) (maintained [by Docker, Inc](https://hub.docker.com/_/rabbitmq/))
- * A [StatefulSets controller](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
-
+* [Minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/) with
+  the [VirtualBox](https://www.virtualbox.org/) driver (other drivers can be used, too)
+* Kubernetes 1.6
+* RabbitMQ [Docker image](https://hub.docker.com/_/rabbitmq/) (
+  maintained [by Docker, Inc](https://hub.docker.com/_/rabbitmq/))
+* A [StatefulSets controller](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 
 ## Quick Start with Make
 
-This example comes with a Make target that sets up VirtualBox, Minikube and an example cluster
-in a single command. It can be found under this directory. [Homebrew](https://brew.sh/) will be used to install
-packages and on macOS, VirtualBox [will need OS permissions to install its kernel module](https://developer.apple.com/library/archive/technotes/tn2459/_index.html).
+This example comes with a Make target that sets up VirtualBox, Minikube and an example cluster in a single command. It
+can be found under this directory. [Homebrew](https://brew.sh/) will be used to install packages and on macOS,
+VirtualBox [will need OS permissions to install its kernel module](https://developer.apple.com/library/archive/technotes/tn2459/_index.html)
+.
 
 The Homebrew cask installer will ask for your password at some point with a prompt that looks like this:
 
@@ -35,8 +37,8 @@ The Homebrew cask installer will ask for your password at some point with a prom
 Changing ownership of paths required by virtualbox; your password may be necessary
 ```
 
-Please inspect the Make file to be extra sure that you understand and agree to what it does.
-After enabling 3rd party kernel extensions in OS setings, run the default Make target in this directory:
+Please inspect the Make file to be extra sure that you understand and agree to what it does. After enabling 3rd party
+kernel extensions in OS setings, run the default Make target in this directory:
 
 ```
 make
@@ -66,14 +68,14 @@ Once the changes are applied, follow the steps in the Check Cluster Status secti
 
 In case you would prefer to install and run Minikube manually, see the following few sections.
 
-
 ## Running the Example Manually with Minikube
 
 ### Preresuites
 
- * Make sure that VirtualBox is installed
- * Install [`minikube`](https://kubernetes.io/docs/tasks/tools/install-minikube/) and start it with `--vm-driver=virtualbox`
- * Install [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* Make sure that VirtualBox is installed
+* Install [`minikube`](https://kubernetes.io/docs/tasks/tools/install-minikube/) and start it
+  with `--vm-driver=virtualbox`
+* Install [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 ### Start Minikube
 
@@ -93,10 +95,9 @@ kubectl create namespace test-rabbitmq
 
 ### Set Up Kubernetes Permissions
 
-In Kubernetes 1.6 or above, RBAC authorization is enabled by default.
-This example configures RBAC related bits so that the peer discovery plugin is allowed to access
-the nodes information it needs. The `ServiceAccount` and `Role` resources will be created
-in the following step.
+In Kubernetes 1.6 or above, RBAC authorization is enabled by default. This example configures RBAC related bits so that
+the peer discovery plugin is allowed to access the nodes information it needs. The `ServiceAccount` and `Role` resources
+will be created in the following step.
 
 ### kubectl Apply Things
 
@@ -109,8 +110,8 @@ kubectl create -f minikube
 
 ### Check Cluster Status
 
-Wait for a a few minutes for pods to start. Since this example uses a stateful set with ordered
-startup, the pods will be started one by one. To monitor pod startup process, use
+Wait for a a few minutes for pods to start. Since this example uses a stateful set with ordered startup, the pods will
+be started one by one. To monitor pod startup process, use
 
 ``` sh
 kubectl --namespace="test-rabbitmq" get pods
@@ -188,9 +189,9 @@ minikube ip
 
 The [ports used](https://www.rabbitmq.com/networking.html#ports) by this example are:
 
- * `amqp://guest:guest@{minikube_ip}:30672`: [AMQP 0-9-1 and AMQP 1.0](https://www.rabbitmq.com/networking.html#ports) client connections
- * `http://{minikube_ip}:31672`: [HTTP API and management UI](https://www.rabbitmq.com/management.html)
-
+* `amqp://guest:guest@{minikube_ip}:30672`: [AMQP 0-9-1 and AMQP 1.0](https://www.rabbitmq.com/networking.html#ports)
+  client connections
+* `http://{minikube_ip}:31672`: [HTTP API and management UI](https://www.rabbitmq.com/management.html)
 
 ### Scaling the Number of RabbitMQ Cluster Nodes (Kubernetes Pod Replicas)
 

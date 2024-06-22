@@ -16,7 +16,7 @@ spec:
         - name: customer
           image: cowboysaker2511/customer:latest
           imagePullPolicy: IfNotPresent
-#          imagePullPolicy: Never
+          #          imagePullPolicy: Never
           ports:
             - containerPort: 8080
           env:
