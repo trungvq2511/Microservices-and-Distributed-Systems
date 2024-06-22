@@ -24,3 +24,22 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    heath:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Fraud service
+    description: This is Fraud service on Localhost.
+    version: 1.0

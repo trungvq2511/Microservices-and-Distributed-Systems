@@ -44,3 +44,22 @@ rabbitmq:
     notification: notification.queue
   routing-keys:
     internal-notification: internal.notification.routing-key
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    heath:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Notification service
+    description: This is Notification service on Localhost.
+    version: 1.0

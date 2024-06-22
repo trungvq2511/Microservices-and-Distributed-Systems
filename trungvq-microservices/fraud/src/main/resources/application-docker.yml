@@ -17,6 +17,15 @@ spring:
     show-sql: true
   zipkin:
     base-url: http://zipkin:9411
+  kafka:
+    bootstrap-servers: "model-clam-10054-us1-kafka.upstash.io:9092"
+    security:
+      protocol: "SASL_SSL"
+    sasl:
+      mechanism: "SCRAM-SHA-256"
+      jaas:
+        config: "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"bW9kZWwtY2xhbS0xMDA1NCTZ9PF8Ig6Wnx7PEp8tV2_O21lGXkICyjkencmtto8\" password=\"MWViYTM3MTUtMDA2Mi00MTZmLWEzOTYtNzM1N2RlY2MwZDVj\";"
+
 eureka:
   client:
     service-url:
@@ -24,3 +33,22 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    heath:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Fraud service
+    description: This is Fraud service on Docker.
+    version: 1.0
